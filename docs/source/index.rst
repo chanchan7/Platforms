@@ -20,3 +20,4 @@ Contents
 
    usage
    api
+   hyperchain/hyperchain_jsonrpc
