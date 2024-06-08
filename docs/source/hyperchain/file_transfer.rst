@@ -14,6 +14,7 @@
 .. _FileUpload:
 
 ⽂件上传
+
 ``func (rpc *RPC) FileUpload(filePath string, description string, userList []string, nodeIdList []int, pushNodes []int, accountJson string, password string) (string, StdError)``
 
 参数：
@@ -55,7 +56,7 @@
 
 ⽂件更新
 
-    ``func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)``
+``func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)``
 
 参数：
 
