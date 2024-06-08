@@ -4,71 +4,47 @@
 
 1. API列表
 
-- :ref:`FileUpload`
-- :ref:`FileDownload`
-- :ref:`FileUpdate`
+- :ref:`RunModel`
 
 2. API详情
 
 
-.. _FileUpload:
+.. _RunModel:
 
-⽂件上传
+运行隐私计算模型
 
-参数：
-
--  ``filePath``: ``<path>`` - 文件路径.
--  ``description``: ``string`` - 文件描述信息.
--  ``userList``: ``string[]`` - ⽤户⽩名单.
--  ``nodeIdList``: ``int[]`` - 节点⽩名单.
--  ``pushNodes``: ``int[]`` - 上传节点.
--  ``accountJson``: ``string`` - 账户.
--  ``password``: ``string`` - 账户密码.
-
-返回值
-
-1. ``fileHash``: ``string`` - 文件哈希.
-2. ``err``: ``err`` - 错误信息.
-
-.. _FileDownload:
-
-⽂件下载
+``Result executeTask(Account caller, Model model)``
 
 参数：
 
--  ``tarPath``: ``<path>`` - tarPath有两种使⽤：1.传有效⽬录，会在给路径下以hash作为⽂件名保存⽂件；2.传有效⽂件路径,对该⽂件进⾏断点续传.
--  ``hash``: ``string`` - 文件哈希.
--  ``owner``: ``string`` - 文件持有者.
--  ``nodeID``: ``int`` - 表示发送下载请求的节点ID.
--  ``accountJson``: ``string`` - 账户.
--  ``password``: ``string`` - 账户密码.
+-  ``caller``: ``Account`` - 调用者账户.
+-  ``model``: ``Model`` - 模型描述信息.
+
+``Model`` 为一字符串，其中包含一段lua代码。在lua虚拟机中预置远程调⽤和多⽅安全计算接⼝，可以通过在主模型中调⽤预置接⼝来使⽤参与⽅发布的资源。具体地，其支持以下隐私计算模型接口：
+
+- ``psaInvoke``: 聚合(加减或乘除)PSA是指发起⽅获取两个及以上参与⽅数据的聚合结果（⽀持加减和乘除），并保护各参与⽅的数据安全，⽀持向量输⼊进⾏聚合。具体的，如发起⽅需要知道参与⽅1的数据a与参与⽅数据b的求和结果，但是不能知道具体a与b的值是多少。
+- ``addInvoke``: 同态加法，同态加法是指发起⽅获取两个及以上参与⽅数据的聚合结果（⽀持加法），并保护各参与⽅的数据安全，⽀持向量输⼊进⾏聚合。具体的，如发起⽅需要知道参与⽅1的数据a与参与⽅数据b的求和结果，但是不能知道具体a与b的值是多少。
+- ``mulInvoke``: 同态乘法，同态乘法是指发起⽅获取两个及以上参与⽅数据的乘法结果，并保护各参与⽅的数据安全，⽀持向量输⼊进⾏聚合。具体的，如发起⽅需要知道参与⽅1的数据a与参与⽅数据b的求积结果，但是不能知道具体a与b的值是多少。
+- ``avgInvoke``: 平均数，Avg是隐私平均数算法，可以获得多个参与⽅的数据的平均数是多少，但是不暴露每个参与⽅数据集的具体数据，⽀持向量输⼊。
+- ``varInvoke``: ⽅差，Var是隐私⽅差算法，可以获得多个参与⽅的数据集归并后的⽅差是多少，但是不暴露每个参与⽅数据集的具体数据。
+- ``innerproductInvoke``: 内积，InnerProduct是隐私内积算法，可以获取本⽅数据集合对⽅数据集的内积数据，保护双⽅数据集的具体数据。
+- ``cmpInvoke``: 比较，可以⽐较发起⽅数据和参与⽅的数据⼤⼩，但是不暴露参与⽅数据。⽀持向量的⽐较。
+- ``medianInvoke``: 中位数，可以获得多个参与⽅的数据集归并后的中位数是多少，但是不暴露每个参与⽅数据集的具体数据。不⽀持向量
+- ``maxInvoke``: Max是隐私最⼤值算法，可以获得多个参与⽅的数据集对应序号的最⼤值是多少，但是不暴露每个参与⽅数据集的具体数据。⽀持向量（求每⼀⾏的最⼤值）
+- ``minInvoke``: Min是隐私最⼩值算法，可以获得多个参与⽅的数据集对应序号的最⼩值是多少，但是不暴露每个参与⽅数据集的具体数据。⽀持向量（求每⼀⾏的最⼩值）
+- ``psiInvoke``: PSI是指求多⽅数据集交集，并保护交集之外的数据隐私性
+- ``psdInvoke``: PSD是指将本⽅数据集和另⼀⽅数据集求差集，并保护对⽅交集之外的数据隐私性
+- ``psuInvoke``: PSU是指发起⽅获得多⽅数据的并集，但⽆法获知某个数据具体来⾃哪⾥，同时，各参与⽅之间⽆法获得对⽅的数据。
+- ``pirInvoke``: PIR算法是隐私查询算法，可以根据key隐私查询key对应的value，整个过程发起⽅⽆法查询到其他数据，参与⽅也⽆法感知发起⽅查询到的数据是哪⼀个。
 
 返回值
 
-1. ``filePath``: ``string`` - 文件下载路径.
-2. ``err``: ``err`` - 错误信息.
+1. ``result``: ``Result`` - 执行结果.
 
-.. _FileUpdate:
+``Result``:
 
-⽂件下载
-
-参数：
-
--  ``fileUpdateTX``: ``<FileExtra>`` - 交易体
-
-.. _FileExtra:
-
-``FileExtra``成员包括：
-
--  ``hash``: ``string`` - 文件哈希.
--  ``fileName``: ``string`` - 文件名.
--  ``fileSize``: ``int64`` - 文件大小.
--  ``updateTime``: ``string`` - 修改时间.
--  ``nodeList``: ``string[]`` - 节点列表.
--  ``userList``: ``string[]`` - 用户列表.
--  ``fileDescription``: ``string`` - 文件描述.
-
-
-返回值
-
-2. ``err``: ``err`` - 错误信息.
+- ``result``: ``string`` - 结果.
+- ``errMsg``: ``string`` - 报错信息.
+- ``logs``: ``string`` - 产生日志.
+- ``usedAppKeys``: ``List`` - 使用到的appkey列表
+.
