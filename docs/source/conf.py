@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = '风险防控技术体系及可信服务的基础平台API资源仓库 '
+project = '社会治理与风险防控共性基础平台 '
 copyright = '2024, Zhejiang University'
 author = 'Zhejiang University'
 

@@ -1,4 +1,4 @@
-Common Infrastructure Platform API Resource Repository
+Common Basic Platform for Social Governance and Preventing and Managing Risks
 ===================================
 
 
