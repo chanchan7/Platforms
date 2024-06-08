@@ -6,3 +6,4 @@
    file_transfer
    mpc
    hyperchain_jsonrpc
+   did
