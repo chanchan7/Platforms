@@ -1,22 +1,11 @@
 区块链传输模块
-
-============
-
-1. API列表
-
-- :ref:`FileUpload`
-- :ref:`FileDownload`
-- :ref:`FileUpdate`
-- :ref:`SignAndSendTx`
-- :ref:`GetTxByBlkNumAndIdx`
-
-2. API详情
+==================================
 
 
-.. _FileUpload:
-
+文件传输
+-------------------------
 ⽂件上传
-
+~~~~~~~~~~~~~~~~~~~~~
 ``func (rpc *RPC) FileUpload(filePath string, description string, userList []string, nodeIdList []int, pushNodes []int, accountJson string, password string) (string, StdError)``
 
 参数：
@@ -37,7 +26,7 @@
 .. _FileDownload:
 
 ⽂件下载
-
+~~~~~~~~~~~~~~~~~~~~~
 ``func (rpc *RPC) FileDownload(tarPath, hash, owner string, nodeID int, accountJson string, password string) (string, StdError)``
 
 参数：
@@ -57,7 +46,7 @@
 .. _FileUpdate:
 
 ⽂件更新
-
+~~~~~~~~~~~~~~~~~~~~~
 ``func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)``
 
 参数：
@@ -81,10 +70,13 @@ FileExtra成员包括：
 
 1. ``err``: ``err`` - 错误信息.
 
+交易处理
+---------------------
+
 .. _SignAndSendTx:
 
 同步发送交易
-
+~~~~~~~~~~~~~~~~~~~~~
 ``func (rpc *RPC) SignAndSendTx(transaction *Transaction, key interface{}) (*TxReceipt, StdError)``
 
 参数：
@@ -100,7 +92,7 @@ FileExtra成员包括：
 .. _GetTxByBlkNumAndIdx:
 
 同步发送交易
-
+~~~~~~~~~~~~~~~~~~~~~
 ``func (rpc *RPC) GetTxByBlkNumAndIdx(blkNum, index uint64) (*TransactionInfo, StdError)``
 
 参数：
