@@ -4,9 +4,9 @@
 
 1. API列表
 
-      - :ref:`注册DID账户`
-      - :ref:`DID账户吊销`
-      - :ref:`查询DID文档`
+- :ref:`注册DID账户`
+- :ref:`DID账户吊销`
+- :ref:`查询DID文档`
 
 2. API详情
 
