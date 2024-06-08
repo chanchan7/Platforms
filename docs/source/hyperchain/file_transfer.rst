@@ -14,8 +14,7 @@
 .. _FileUpload:
 
 ⽂件上传
-.. code-block:: go
-    func (rpc *RPC) FileUpload(filePath string, description string, userList []string, nodeIdList []int, pushNodes []int, accountJson string, password string) (string, StdError)
+``func (rpc *RPC) FileUpload(filePath string, description string, userList []string, nodeIdList []int, pushNodes []int, accountJson string, password string) (string, StdError)``
 
 参数：
 
@@ -36,8 +35,7 @@
 
 ⽂件下载
 
-.. code-block:: go
-    func (rpc *RPC) FileDownload(tarPath, hash, owner string, nodeID int, accountJson string, password string) (string, StdError)
+``func (rpc *RPC) FileDownload(tarPath, hash, owner string, nodeID int, accountJson string, password string) (string, StdError)``
 
 参数：
 
@@ -57,8 +55,7 @@
 
 ⽂件更新
 
-.. code-block:: go
-    func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)
+    ``func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)``
 
 参数：
 
@@ -66,7 +63,7 @@
 
 .. _FileExtra:
 
- ``FileExtra`` 成员包括：
+FileExtra成员包括：
 
 -  ``hash``: ``string`` - 文件哈希.
 -  ``fileName``: ``string`` - 文件名.
