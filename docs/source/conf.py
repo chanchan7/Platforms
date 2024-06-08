@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = '风险防控技术体系及可信服务的基础平台API资源仓库 '
+copyright = '2024, Zhejiang University'
+author = 'Zhejiang University'
 
 release = '0.1'
 version = '0.1.0'
