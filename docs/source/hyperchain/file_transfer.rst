@@ -7,6 +7,8 @@
 - :ref:`FileUpload`
 - :ref:`FileDownload`
 - :ref:`FileUpdate`
+- :ref:`SignAndSendTx`
+- :ref:`GetTxByBlkNumAndIdx`
 
 2. API详情
 
@@ -77,4 +79,36 @@ FileExtra成员包括：
 
 返回值
 
+1. ``err``: ``err`` - 错误信息.
+
+.. _SignAndSendTx:
+
+同步发送交易
+
+``func (rpc *RPC) SignAndSendTx(transaction *Transaction, key interface{}) (*TxReceipt, StdError)``
+
+参数：
+
+-  ``transaction``: ``<Transaction>`` - 交易体
+-  ``key``: ``<Key>`` - 交易发送⽅key.
+
+返回值
+
+1. ``txReceipt``: ``<TxReceipt>`` - 交易回执.
+2. ``err``: ``err`` - 错误信息.
+
+.. _GetTxByBlkNumAndIdx:
+
+同步发送交易
+
+``func (rpc *RPC) GetTxByBlkNumAndIdx(blkNum, index uint64) (*TransactionInfo, StdError)``
+
+参数：
+
+-  ``blkNum``: ``int`` - 区块号
+-  ``index``: ``int`` - 交易在当前区块内的序号.
+
+返回值
+
+1. ``TransactionInfo``: ``<TransactionInfo>`` - 交易信息.
 2. ``err``: ``err`` - 错误信息.
