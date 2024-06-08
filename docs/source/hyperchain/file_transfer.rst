@@ -14,6 +14,8 @@
 .. _FileUpload:
 
 ⽂件上传
+.. code-block:: go
+    func (rpc *RPC) FileUpload(filePath string, description string, userList []string, nodeIdList []int, pushNodes []int, accountJson string, password string) (string, StdError)
 
 参数：
 
@@ -34,6 +36,9 @@
 
 ⽂件下载
 
+.. code-block:: go
+    func (rpc *RPC) FileDownload(tarPath, hash, owner string, nodeID int, accountJson string, password string) (string, StdError)
+
 参数：
 
 -  ``tarPath``: ``<path>`` - tarPath有两种使⽤：1.传有效⽬录，会在给路径下以hash作为⽂件名保存⽂件；2.传有效⽂件路径,对该⽂件进⾏断点续传.
@@ -50,7 +55,10 @@
 
 .. _FileUpdate:
 
-⽂件下载
+⽂件更新
+
+.. code-block:: go
+    func (rpc *RPC) FileUpdate(fileUpdateTX FileExtra) (StdError)
 
 参数：
 
@@ -58,7 +66,7 @@
 
 .. _FileExtra:
 
-``FileExtra``成员包括：
+ ``FileExtra`` 成员包括：
 
 -  ``hash``: ``string`` - 文件哈希.
 -  ``fileName``: ``string`` - 文件名.
