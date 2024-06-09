@@ -4,6 +4,6 @@
 .. toctree::
 
    Feature integration management
-   multicore fusion decision-making
+   multicore fusion decision_making
    Multidimensional risk information early warning
    Customized Risks
