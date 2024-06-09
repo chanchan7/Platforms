@@ -17,10 +17,10 @@ Contents
    :maxdepth: 2
    :caption: Contents:
 
+   
    Introduction
    hyperchain/index
-   digital_identity_module/index
-   blockchain_data_transmission/index
-   risk_control_rules/index
-   real_time_computing/index
-   decision_fusion/index
+   RulesIntelligence/index
+   DataProcessing/index
+   RealTimeCalculation/index
+   IntegrationDecision/index
