@@ -3,6 +3,6 @@
 
 .. toctree::
 
-   Multi-source data support
+   Multi_source data support
    Complex Streaming Data Processing
    Visualization of data bloodlines
