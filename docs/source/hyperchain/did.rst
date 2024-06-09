@@ -11,6 +11,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``Request<TxHashResponse> register(Transaction transaction, int... nodeIds);``
+
 ``Request<ReceiptResponse> grpcRegisterReturnReceipt(Transaction transaction, int... nodeIds);``
 
 参数：
@@ -29,6 +30,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``Request<TxHashResponse> storage(Transaction transaction, int... nodeIds);``
+
 ``Request<ReceiptResponse> grpcStorageReturnReceipt(Transaction transaction, int... nodeIds);``
 
 参数：
@@ -47,6 +49,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``Request<TxHashResponse> getDid(Transaction transaction, int... nodeIds);``
+
 ``Request<ReceiptResponse> grpcGetDidReturnReceipt(Transaction transaction, int... nodeIds);``
 
 参数：
@@ -65,6 +68,7 @@
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``Request<TxHashResponse> destroy(Transaction transaction, int... nodeIds);``
+
 ``Request<ReceiptResponse> grpcDestroyReturnReceipt(Transaction transaction, int... nodeIds);``
 
 参数：
